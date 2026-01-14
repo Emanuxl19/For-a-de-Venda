@@ -1,0 +1,21 @@
+# VS Code
+.vscode/
+JOBVFE23.prw
+
+# Env/config (do not commit secrets)
+.env
+.env.local
+
+# Compiled/temporary files
+*.err
+*.log
+*.bak
+*.tmp
+*~
+*.swp
+
+# System files
+Thumbs.db
+.DS_Store
+CLAUDE.md
+PROMPT.MD

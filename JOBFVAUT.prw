@@ -3,11 +3,11 @@
 /*-------------------------------------------------------------------------------------------------*
  | Data       : 07/11//2025                                                                        |
  | Rotina     : JOBFVAUT                                                                           |
- | Responsï¿½vel: EMANUEL AZEVEDO                                                                    |
- | Descriï¿½ï¿½o  : Rotina para autrenticaï¿½ï¿½o e captura do token de acesso do sistema MaxPedido.       | 
+ | Responsável: EMANUEL AZEVEDO                                                                    |
+ | Descriçao  : Rotina para autenticação e captura do token de acesso do sistema MaxPedido.        | 
  |                                                                                                 |
- | versï¿½o     : 1.0                                                                                |
- | Histï¿½rico  :                                                                                    | 
+ | versãoo    : 1.0                                                                                |
+ | Histórico  :                                                                                    | 
  *------------------------------------------------------------------------------------------------*/
 
 
@@ -29,12 +29,12 @@ User Function JOBFVAUT()
     oRest:SetPath(cResource)
     oRest:SetPostParams(AutJson(cUsrLogin, cUsrSenha))
 
-    // REALIZA O Mï¿½TODO POST E VALIDA O RETORNO
+    // REALIZA O MéTODO POST E VALIDA O RETORNO
     If (oRest:Post(aHeader))
         jResultado := JsonObject():New()
         jResultado:FromJson(oRest:cResult)
 
-        // Alguns ambientes retornam campos com variaï¿½ï¿½o na grafia; tenta todas as opï¿½ï¿½es conhecidas
+        // Alguns ambientes retornam campos com variação na grafia; tenta todas as opições conhecidas
         cToken := jResultado:GetJsonObject("token_De_Acesso")
         If Empty(cToken)
             cToken := jResultado:GetJsonObject("token_de_acesso")
@@ -50,7 +50,7 @@ User Function JOBFVAUT()
 Return cToken
 
 
-// CRIA O JSON QUE SERï¿½ ENVIADO NO CORPO (BODY) DA REQUISIï¿½ï¿½O
+// CRIA O JSON QUE SERÍA ENVIADO NO CORPO (BODY) DA REQUISIÇÃO
 Static Function AutJson(cLogin,cPassword)
     Local bObject       := {|| JsonObject():New()}
     Local oJson         := Eval(bObject)
